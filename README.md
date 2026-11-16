@@ -14,12 +14,13 @@ list_runs("runs/")                                   # every run folder with its
 ```
 
 Writing: `write_part`, `write_plan`, `compact` (the engine of a project builds the rows).
-Only `pandas` and `pyarrow` (wide ranges, no pins). Python >= 3.11.
+Only `pandas`, `pyarrow` and `pyyaml` (wide ranges, no pins). Python >= 3.11.
 
 ## Install
 
-- **Project (uv):** `[tool.uv.sources] ds-runstore = { path = "../ds-runstore", editable = true }`
-- **Tool / container:** `uv build` → `dist/ds_runstore-<version>-py3-none-any.whl`, `pip install` it.
+- **Project (uv):** `[tool.uv.sources] ds-runstore = { git = "https://github.com/Andi354/ds-runstore" }`;
+  `uv.lock` pins the commit. Take a newer state on purpose: `uv lock --upgrade-package ds-runstore`.
+- **Tool / container:** `pip install git+https://github.com/Andi354/ds-runstore@<commit>`.
 
 ## Name
 
